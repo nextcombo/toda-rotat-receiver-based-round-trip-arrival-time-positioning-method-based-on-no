@@ -1,0 +1,34 @@
+# [TODA] ROTAT: Receiver-based round-trip arrival time positioning method based on non-synchronous receivers [with MATLAB code]
+
+II. Summary (Chinese translation) The Multi-Site Localization System (Multi-Site Localization System) reconstructs the target's position by receiving electromagnetic or acoustic signals emitted by the target, with the core measurement data required for localization being the Time of Arrival (TOA) recorded by multiple spatially distributed receivers. This paper proposes a novel multi-site localization algorithm that does not require precise clock synchronization between receivers; moreover, this method does not require any prior information about the transmitted signal, only ensuring accurate and recognizable TOA measurements (e.g., the target can emit non-periodic pulses).The core idea is to use the TOA difference between consecutive messages received by each receiver for positioning, so the measurement equation is not affected by receiver clock offsets. Clock synchronization only needs to be accurate enough to identify each transmitted signal on all receivers. This paper derives various specific maximum likelihood estimators for single non-maneuvering targets based on this method and considers the issue of receiver clock drift.
+3. Introduction
+a) Research Background: Electromagnetic and acoustic signals carry multiple characteristics that can be used to obtain the location of the signal emitter when received at multiple sites. A wide range of positioning algorithms have been proposed, based on either a single characteristic or a combination of multiple characteristics to achieve emitter localization, including positioning based on received signal strength (RSS), arrival angle (AOA), Doppler shift, and time of arrival (TOA).
+The TOA-based multi-site positioning has been widely studied, for example, with target transmitters sending messages at a constant propagation speed, allowing multiple sites to achieve positioning by receiving these messages; this principle is also applied in navigation (such as the LORAN system during World War II), where an array of known positioned transmitter arrays send pulses, receivers measure TOA and calculate the time difference of arrival (DOTA) for navigation, which remains simple and efficient to this day. Additionally, Secondary Surveillance Radar (SSR) acquires target messages through inquiry and combines DOTA positioning with SSR, replacing One-Way Surveillance Radar (OWR) in most scenarios due to its cost and accuracy advantages.
+However, both TOA and DOTA methods require receiver clock synchronization: for electromagnetic waves, a 1 nanosecond time difference corresponds to a 30 centimeter distance error, making high-cost long-distance receiver synchronization challenging; and relying on GNSS for synchronization, is limited by satellite infrastructure and signal reception conditions, making reliability difficult to guarantee in safety-critical systems.
+b) Research Status: Multi-site positioning methods without sensor synchronization can reduce the complexity and communication overhead of distributed sensor networks. Literature [17] first proposed using DOTA based on local continuous message reception to achieve asynchronous positioning, avoiding the impact of clock offset; literature [18] extended to multi-transmission sequences and implemented target tracking using Kalman filtering, but this method only applies to two transmissions and does not consider the correlation of continuous measurements, does not explicitly model clock drift, requires known target transmission time intervals, and has significant limitations.
+C) Research Contributions
+This paper proposes a novel method for the target positioning of asynchronous receivers, with core contributions including: 1) The need for no known transmission time or time interval of the target; 2) Clear modeling of receiver clock drift and its estimation in conjunction with target positioning, enhancing positioning accuracy.
+IV. Method 1
+Core idea: Leveraging Local Transmission Time Difference (L-TDOA/L-DOTA) to avoid the need for synchronization between receivers - L-DOTA is the difference between two TOA values on the same receiver, and L-TDOA is the direct measurement of the time difference through signal cross-correlation on the same receiver, both unaffected by receiver clock drift.
+2
+Measurement equation construction: Based on the principle of "Return-to-Transmit (ROTA)," establish correlation equations between L-TDOA/L-DOTA measurement values and target position, target transmission time difference, eliminating clock drift interference.
+3
+Estimator design: For scenarios with two transmissions and multiple transmissions, derive maximum likelihood estimators separately, treating measurement noise as additive Gaussian noise, and solve for unknown variables such as target position and transmission time difference using the Levenberg-Marquardt nonlinear least squares algorithm; for multiple transmission scenarios, increase the number of equations to reduce the minimum number of receivers required.
+4
+Clock drift handling: Clearly model receiver clock drift (with drift causing errors of several meters under seconds-level transmission intervals), incorporate drift parameters into the measurement equation and estimation model, synchronize with target position estimation, further improving positioning accuracy.
+5. Conclusion This paper systematically derives a Multi-Site Localization (MLAT) method suitable for multiple asynchronous receivers to locate a single target, which is highly flexible and does not require transmission time information of the known target. The paper details the derivation of measurement equations that correlate the target position with the difference in receiver local time, and proposes a maximum likelihood estimation method based on the Levenberg-Marquardt algorithm, which can efficiently solve the target position. Furthermore, due to the potential of target transmission time differences reaching several seconds, clock drift can cause positioning errors of hundreds of meters, thus this paper explicitly incorporates receiver clock drift into the estimation model, effectively avoiding this error source and enhancing the reliability of positioning.
+
+## Images
+
+![(TODA)ROTA: Receiver-based round-trip arrival time positioning method based on non-synchronous receivers [with MATLAB code]](01.jpg)
+![(TODA)ROTA: Receiver-based round-trip arrival time positioning method based on non-synchronous receivers [with MATLAB code]](02.jpg)
+![(TODA)ROTA: Receiver-based round-trip arrival time positioning method based on non-synchronous receivers [with MATLAB code]](03.jpg)
+
+<!-- PAYMENT_BLOCK -->
+
+## Get this dataset
+
+- Payment link (Stripe): [Buy now](https://buy.stripe.com/3cs8yP7sY87d0vu9AB)
+- Payment QR code: ![Payment QR code](pay.png)
+
+<!-- /PAYMENT_BLOCK -->
